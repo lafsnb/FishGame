@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Control.gd" type="Script" id=1]
+[ext_resource path="res://Images/Menu/Endless.png" type="Texture" id=2]
+[ext_resource path="res://Images/Menu/LeftButton.png" type="Texture" id=3]
+[ext_resource path="res://Images/Menu/RightButton.png" type="Texture" id=4]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 439.968
+margin_top = 471.0
+margin_right = -440.736
+margin_bottom = -90.0
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelImage" type="Sprite" parent="."]
+position = Vector2( 512.5, 277.752 )
+scale = Vector2( 0.186568, 0.186568 )
+texture = ExtResource( 2 )
+
+[node name="LeftButton" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 250.0
+margin_top = 249.594
+margin_right = -674.0
+margin_bottom = -250.406
+icon = ExtResource( 3 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightButton" type="Button" parent="."]
+margin_left = 678.056
+margin_top = 252.152
+margin_right = 778.056
+margin_bottom = 352.152
+icon = ExtResource( 4 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="LeftButton" to="." method="_on_LeftButton_pressed"]
+[connection signal="pressed" from="RightButton" to="." method="_on_RightButton_pressed"]

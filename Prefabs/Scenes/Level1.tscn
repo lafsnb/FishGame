@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Prefabs/Fish.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/FoodSpawner.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/EnemyFishSpawner.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/EnemyFishSpawnerLeft.gd" type="Script" id=4]
+[ext_resource path="res://Images/Backgrounds/OceanBackground.jpg" type="Texture" id=5]
+
+[node name="Level1" type="Node2D"]
+
+[node name="OceanBackground" type="Sprite" parent="."]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 5 )
+
+[node name="Fish" parent="." instance=ExtResource( 1 )]
+position = Vector2( -113.871, -40.4548 )
+
+[node name="FoodSpawner" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -1465 )
+
+[node name="EnemyFishSpawnerRight" type="Node2D" parent="."]
+position = Vector2( 2100, -5.04 )
+script = ExtResource( 3 )
+
+[node name="EnemyFishTimerRight" type="Timer" parent="EnemyFishSpawnerRight"]
+
+[node name="EnemyFishSpawnerLeft" type="Node2D" parent="."]
+position = Vector2( -700, 0 )
+script = ExtResource( 4 )
+
+[node name="EnemyFishTimerLeft" type="Timer" parent="EnemyFishSpawnerLeft"]
+[connection signal="timeout" from="EnemyFishSpawnerRight/EnemyFishTimerRight" to="EnemyFishSpawnerRight" method="_on_EnemyFishTimerRight_timeout"]
+[connection signal="timeout" from="EnemyFishSpawnerLeft/EnemyFishTimerLeft" to="EnemyFishSpawnerLeft" method="_on_EnemyFishTimerLeft_timeout"]

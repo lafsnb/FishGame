@@ -1,0 +1,15 @@
+[gd_scene format=2]
+
+[node name="EndlessLevel" type="Node2D"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 203.832
+margin_top = 147.854
+margin_right = 307.832
+margin_bottom = 178.854
+rect_scale = Vector2( 5, 5 )
+text = "Endless Level
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
